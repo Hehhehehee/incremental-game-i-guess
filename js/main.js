@@ -44,5 +44,5 @@ function displays() {
 }
 
 function tick() {
-    cash = cash.plus(cashpersecond.times(wikipoints))
+    cash = cash.plus(cashpersecond.times(wikipoints.plus(new Decimal(1))))
 }
