@@ -2,7 +2,7 @@ cash = new Decimal(0)
 cashpersecond = new Decimal(0.000000001)
 vandalizedprice = new Decimal(2e-7)
 banprice = new Decimal(1)
-wikipoints = new Decimal(0)
+wikipoints = new Decimal(1)
 setInterval(() => {
     tick()
     displays()
@@ -44,5 +44,5 @@ function displays() {
 }
 
 function tick() {
-    cash = cash.plus(cashpersecond.times(wikipoints.plus(new Decimal(1))))
+    cash = cash.plus(cashpersecond.times(wikipoints))
 }
