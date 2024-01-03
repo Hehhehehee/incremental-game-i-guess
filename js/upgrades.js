@@ -55,4 +55,20 @@ upgrades = [
         pricetype:"cash",
         price:new Decimal("100000"),
     },
+    {
+        name:"10x wikipoint gain (2 wikipoints)",
+        onbuy:()=>{wikipointmult=wikipointmult.times(10)},
+        checkforunlock:()=>{if(wikipoint.gte(1)){return true}else{return false}},
+        unlocked:false,
+        pricetype:"wikipoint",
+        price:new Decimal("2"),
+    },
+    {
+        name:"10x wikipoint gain (20 wikipoints)",
+        onbuy:()=>{wikipointmult=wikipointmult.times(10)},
+        checkforunlock:()=>{if(wikipoint.gte(10)){return true}else{return false}},
+        unlocked:false,
+        pricetype:"wikipoint",
+        price:new Decimal("20"),
+    },
 ]

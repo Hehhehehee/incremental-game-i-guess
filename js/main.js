@@ -1,7 +1,8 @@
 givemefreeachievment = 0
 cash = new Decimal(0)
 cashpersecond = new Decimal(0.000000001)
-generatorprices = [
+wikipointmult = new Decimal(1)
+generatorprices = [  
     new Decimal("2e-7"),
     new Decimal("1"),
     new Decimal("1e4"),
@@ -40,7 +41,15 @@ $( function() {
     
     $("#purge").click(()=>{
         if (cash.gte(new Decimal(1e308))) {
-            wikipoints = wikipoints.plus(cash.div(1e308))
+            wikipoints = wikipoints.plus(
+                new Decimal(cash
+                .log10())
+                .floor()
+                .div(308)
+                .times(10)
+                .minus(0.75)
+                .times(wikipointmult)
+                )
             cash = new Decimal(0)
             generatorprices = [
                 new Decimal("2e-7"),
@@ -86,8 +95,16 @@ function displays() {
             $(textnode).click(()=>{
                 if (element.pricetype === "cash") {
                     if (cash.gte(element.price)) {
-                        element.onbuy()
                         cash=cash.minus(element.price)
+                        element.onbuy()
+                        textnode.remove()
+                        node.remove()
+                    }
+                }
+                if (element.pricetype === "wikipoint") {
+                    if (wikipoints.gte(element.price)) {
+                        wikipoints=wikipoints.minus(element.price)
+                        element.onbuy()
                         textnode.remove()
                         node.remove()
                     }
