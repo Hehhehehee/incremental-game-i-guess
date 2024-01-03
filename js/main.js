@@ -1,7 +1,9 @@
+achievment9 = 0
 givemefreeachievment = 0
 cash = new Decimal(0)
 cashpersecond = new Decimal(0.000000001)
 wikipointmult = new Decimal(1)
+factor = 308
 generatorprices = [  
     new Decimal("2e-7"),
     new Decimal("1"),
@@ -45,7 +47,7 @@ $( function() {
                 new Decimal(cash
                 .log10())
                 .floor()
-                .div(308)
+                .div(factor)
                 .times(10)
                 .minus(0.75)
                 .times(wikipointmult)

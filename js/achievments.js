@@ -49,5 +49,10 @@ achievments = [
         reqcheck: ()=>{if(givemefreeachievment===1){return true}else{return false}},
         awarded:false
     },
+    {
+        name:"unlimited power",
+        reqcheck: ()=>{if(achievment9===1){return true}else{return false}},
+        awarded:false
+    },
 ]
 
