@@ -44,5 +44,10 @@ achievments = [
         reqcheck: ()=>{if(generatorProduction[0].gte("1")){return true}else{return false}},
         awarded:false
     },
+    {
+        name:"you daredevil!",
+        reqcheck: ()=>{if(givemefreeachievment===1){return true}else{return false}},
+        awarded:false
+    },
 ]
 

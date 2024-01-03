@@ -1,4 +1,4 @@
-
+givemefreeachievment = 0
 cash = new Decimal(0)
 cashpersecond = new Decimal(0.000000001)
 generatorprices = [
@@ -41,9 +41,24 @@ $( function() {
     $("#purge").click(()=>{
         if (cash.gte(new Decimal(1e308))) {
             cash = new Decimal(0)
-            cashpersecond = new Decimal(0.000000001)
-            vandalizedprice = new Decimal(2e-7)
-            banprice = new Decimal(1)
+            generatorprices = [
+                new Decimal("2e-7"),
+                new Decimal("1"),
+                new Decimal("1e4"),
+                new Decimal("1e10"),
+            ]
+            generators = [
+                new Decimal(1),
+                new Decimal(0),
+                new Decimal(0),
+                new Decimal(0),
+            ]
+            generatorProduction = [
+                new Decimal("0.000000001"),
+                new Decimal("1"),
+                new Decimal("1"),
+                new Decimal("1"),
+            ]
             wikipoints = wikipoints.plus(cash.div(1e308))
         }
     })
