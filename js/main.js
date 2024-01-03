@@ -40,6 +40,7 @@ $( function() {
     
     $("#purge").click(()=>{
         if (cash.gte(new Decimal(1e308))) {
+            wikipoints = wikipoints.plus(cash.div(1e308))
             cash = new Decimal(0)
             generatorprices = [
                 new Decimal("2e-7"),
@@ -59,7 +60,6 @@ $( function() {
                 new Decimal("1"),
                 new Decimal("1"),
             ]
-            wikipoints = wikipoints.plus(cash.div(1e308))
         }
     })
 });
