@@ -1,10 +1,19 @@
-.news-ticker {
-    width:98.8%;
-    top:0px;
-    left:0px;
+
+.avgdiv {
     border:solid 3px;
     padding: 5px;
     position:absolute;
+}
+.auto-width {
+    width: auto;
+}
+.news-ticker {
+    border:solid 3px;
+    padding: 5px;
+    position:absolute;
+    width: 100vw;
+    top:0px;
+    left:0px; 
     text-align: center;
 }
 .square-button {
@@ -12,3 +21,37 @@
     width:50px;
     text-align: center;
 }
+button {
+    cursor:pointer;
+    background-color: rgb(201, 201, 201);
+    border-style: solid;
+}
+.beyond-tab {
+    height:200px;
+    width:500px;
+    text-align: center;
+}
+.highzindex {
+    z-index: 10000;
+}
+.higherzindex {
+    z-index: 10001;
+}
+.fullscreen { background-color: #00aaff; width: 100%; min-height: 100%; margin: auto; }
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+}
+canvas {
+    overflow-clip-margin: 0px;
+    overflow: hidden;
+    
+}
+li canvas {
+    vertical-align: middle;
+  }

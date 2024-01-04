@@ -4,6 +4,17 @@ cash = new Decimal(0)
 cashpersecond = new Decimal(0.000000001)
 wikipointmult = new Decimal(1)
 factor = 308
+
+function showtextinfullscreen(a) {
+    screencover = document.createElement("div");
+    span = document.createElement("span");
+    $(screencover).addClass("highzindex")
+    $(screencover).addClass("fullscreen")
+    document.body.appendChild(screencover);
+    document.body.appendChild(span);
+    $(span).addClass("higherzindex")
+    $(span).text(a)
+}
 generatorprices = [  
     new Decimal("2e-7"),
     new Decimal("1"),
@@ -29,12 +40,14 @@ setInterval(() => {
 }, 33);
 
 $( function() {
+    $("#beyondtab").hide()
+    $("#beyondtab").draggable()
     generatorprices.forEach((element, index) => {
         var x = document.getElementById("MG" + index + "-button"); 
         $(x).click(() => {
           if (cash.gte(generatorprices[index])) {
             cash = cash.minus(generatorprices[index]);
-            generatorprices[index] = generatorprices[index].times(2)
+            generatorprices[index] = generatorprices[index].times(1.3)
             generators[index] = generators[index].plus(1);
             displays()
           }
