@@ -4,7 +4,8 @@ cash = new Decimal(0)
 cashpersecond = new Decimal(0.000000001)
 wikipointmult = new Decimal(1)
 factor = 308
-
+beyondpoint=new Decimal(0)
+beyondpointmult = new Decimal(1)
 function showtextinfullscreen(a) {
     screencover = document.createElement("div");
     span = document.createElement("span");
@@ -40,6 +41,41 @@ setInterval(() => {
 }, 33);
 
 $( function() {
+    $("#gobeyond").click(()=>{
+        beyondpoint = beyondpoint.plus(
+            new Decimal(wikipoints
+            .log10())
+            .floor()
+            .div(12)
+            .times(10)
+            .minus(0.75)
+            .times(beyondpointmult)
+            )
+        cash = new Decimal(0)
+        wikipoints = new Decimal(0)
+        wikipointmult = new Decimal(0)
+        upgrades.forEach((element, index)=>{
+            upgrades[index].unlocked = false
+        })
+        generatorprices = [
+            new Decimal("2e-7"),
+            new Decimal("1"),
+            new Decimal("1e4"),
+            new Decimal("1e10"),
+        ]
+        generators = [
+            new Decimal(1),
+            new Decimal(0),
+            new Decimal(0),
+            new Decimal(0),
+        ]
+        generatorProduction = [
+            new Decimal("0.000000001"),
+            new Decimal("1"),
+            new Decimal("1"),
+            new Decimal("1"),
+        ]
+    })
     $("#beyondtab").hide()
     $("#beyondtab").draggable()
     generatorprices.forEach((element, index) => {
@@ -84,6 +120,41 @@ $( function() {
                 new Decimal("1"),
                 new Decimal("1"),
             ]
+            $("#gobeyond").click(()=>{
+        beyondpoint = beyondpoint.plus(
+            new Decimal(wikipoints
+            .log10())
+            .floor()
+            .div(12)
+            .times(10)
+            .minus(0.75)
+            .times(beyondpointmult)
+            )
+        cash = new Decimal(0)
+        wikipoints = new Decimal(0)
+        wikipointmult = new Decimal(0)
+        upgrades.forEach((element, index)=>{
+            upgrades[index].unlocked = false
+        })
+        generatorprices = [
+            new Decimal("2e-7"),
+            new Decimal("1"),
+            new Decimal("1e4"),
+            new Decimal("1e10"),
+        ]
+        generators = [
+            new Decimal(1),
+            new Decimal(0),
+            new Decimal(0),
+            new Decimal(0),
+        ]
+        generatorProduction = [
+            new Decimal("0.000000001"),
+            new Decimal("1"),
+            new Decimal("1"),
+            new Decimal("1"),
+        ]
+    })
         }
     })
 });
@@ -130,7 +201,7 @@ function displays() {
 }
 
 function tick() {
-    cash = cash.plus(cashpersecond.times(wikipoints.plus(new Decimal(1))))
+    cash = cash.plus(cashpersecond.times(wikipoints.plus(new Decimal(1))).pow(beyondpoint.div(100).plus(1)))
     generators.forEach((element, index) => {
         if (index !== 0) {
             generators[index-1] = generators[index-1].plus(generatorProduction[index].times(generators[index]))

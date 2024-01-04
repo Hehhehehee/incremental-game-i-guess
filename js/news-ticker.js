@@ -5,7 +5,8 @@ news = [
     "the achievments for this game are criminally hard",
     "big news!",
     "i,m going to download the universe and put it on internet archive",
-    "developer announcement: next update coming in 5 hours"
+    "developer announcement: next update coming in 5 hours",
+    "V3?!?!??! DANGANROANPA REFERENCE?!?!????????????????",
 ]
 nextnews = news[Math.floor(Math.random(1,2)*4)]
 $("#news").text(nextnews)

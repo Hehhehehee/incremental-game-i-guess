@@ -60,7 +60,57 @@ wptt = [
             rect:true,
             direction:"vertical"
         },
-    ]   
+    ],
+    [
+        { 
+            rect:true,
+            direction:"amongus impostor!!"
+        },
+        { 
+            rect:true,
+            direction:"none"
+        },
+        { 
+            rect:true,
+            direction:"vertical"
+        },
+        { 
+            rect:true,
+            direction:"amongus impostor!!"
+        },
+        { 
+            rect:true,
+            direction:"vertical"
+        },
+    ],
+    [
+        { 
+            rect:true,
+            direction:"amongus impostor!!"
+        },
+        { 
+            rect:true,
+            direction:"none"
+        },
+        {
+            name:"BYD2",
+            checkrequirement:()=>{if(wptt[1][2].bought&&wikipoints.gte(1e16)&&beyondpoint.gte(1)){return true}else{return false}},
+            onbuy:()=>{wikipoints=wikipoints.minus(1e16);beyondpoint=beyondpoint.minus(1);beyondpointmult=beyondpointmult.times(2)},
+            tooltip:"2x more beyond points, 1e16 wikipoints + 1 beyondpoint",
+            bought:false
+        },
+        { 
+            rect:true,
+            direction:"none"
+        },
+        {
+            name:"MDS2",
+            checkrequirement:()=>{if(wptt[0][4].bought&&wikipoints.gte(1e6)){return true}else{return false}},
+            onbuy:()=>{generatorProduction[0]=generatorProduction[0].times(1000);wikipoints=wikipoints.minus(1e6)},
+            tooltip:"1000x more mod hirer production, costs 1e6 (a million) wikipoints",
+            bought:false
+        },
+    ]
 ]
 totalrows = 2
 $( function() {
@@ -108,6 +158,14 @@ $( function() {
                     canvas.setAttribute("width", 50)
                     canvas.setAttribute("height", 50)
                     ctx.fillRect(0,20,50,10)   
+                } else {
+                    var canvas = document.createElement("canvas")
+                    ctx = canvas.getContext("2d")
+                    canvas.innerHTML = "<canvas width=50 height=50></canvas>"
+                    node.appendChild(canvas);
+                    document.getElementById("wptt").appendChild(node);       
+                    canvas.setAttribute("width", 50)
+                    canvas.setAttribute("height", 50) 
                 }
             }
         })

@@ -45,14 +45,20 @@ achievments = [
         awarded:false
     },
     {
-        name:"you daredevil!",
+        name:"you daredevil! (not needed for 100%)",
         reqcheck: ()=>{if(givemefreeachievment===1){return true}else{return false}},
         awarded:false
     },
     {
-        name:"unlimited power",
+        name:"unlimited power (bought)",
         reqcheck: ()=>{if(achievment9===1){return true}else{return false}},
         awarded:false
+    },
+    {
+        name:"the start of the end of the end (1 beyondpoint)",
+        reqcheck: ()=>{if(beyondpoint.eq(1)){return true}else{return false}},
+        awarded:false,
+        beyondprotected:true
     },
 ]
 
